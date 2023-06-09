@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dots Fractal Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/main.js" defer type="module"></script>
+</head>
+<body>
+
+    <main>
+        <section class="left">
+            <div class="fractal-title-container">
+                <h1 class="fractal-title">Project Fractal</h1>
+            </div>
+            <div class="left-content">
+                <!-- Translate x & y -->
+                <h3 class="translate-position-title">Translate X & Y</h3>
+                <input type="text" name="translate x input" id="tanslateXInput" class="translate-x-input" placeholder="Enter a number" value="0">
+                <br>
+                <input type="text" name="translate y input" id="tanslateYInput" class="translate-y-input" placeholder="Enter a number" value="0">
+
+                <!-- Other Properties -->
+                <h3 class="rotation-title">Rotation</h3>
+                <input type="text" placeholder="Enter a number in degrees" class="rotation-input" id="rotationInput" name="rotation input" value="0">
+                <h3 class="amount-of-sides-title">Amount Of Sides</h3>
+                <input type="text" name="Amount of sides" id="amountOfSidesInput" placeholder="Enter amount of sides" class="amount-of-sides-input" value="4">
+                <h3 class="scale-title">Scale</h3>
+                <input type="text" name="scale imput" id="scaleInput" class="scale-input" placeholder="Enter a number" value="250">
+                <h3 class="r-value-title">r-value</h3>
+                <select name="" id="rValueSelection" class="r-value-selection">
+                    <option value="sierpinski">Sierpinski r-value</option>
+                    <option value="1/2">1/2</option>
+                </select>
+                <h3 class="complexity-title">Complexity</h3>
+                <input type="range" name="complexity input" id="complexityInput" class="complexity-input" min = "1" max = "4">
+                <!--<button id="generateFractal" class="generate-fractal">Update</button>-->
+            </div>
+        </section>
+        <section class="middle">
+            <canvas id="canvas"></canvas>
+                <div class="fractal-tabs" id="fractalTabs">
+                    <div class="fractals-top" id="fractalsTop">
+                        <h3 class="fractals-title">Fractals</h3>
+                        <ion-icon class="fractal-arrow" id="fractalArrow" name="chevron-down-outline"></ion-icon>
+                    </div>
+                </div>
+        </section>
+        <section class="right">
+            <h3 class="gradient-title">Gradient</h3>
+            <canvas id="gradientCanvas" class="gradient-canvas"></canvas>
+            <input type="text" name="gradient color 1" id="gradientColor1Input" placeholder="Enter the first color" class="grandient-color-1-input" value="red">
+            <input type="text" name="gradient color 2" id="gradientColor2Input" placeholder="Enter the second color" class="grandient-color-2-input" value="blue">
+
+            <!-- Point Rules -->
+            <h3 class="point-rules-title">Point Rules</h3>
+            <span>
+                <label for="eleminationRule1" class="elemination-rule-1-label">Elemination 1</label>
+                <input type="checkbox" name="Elemination Rule 1" id="eleminationRule1" class="elemination-rule" checked>
+            </span>
+            <span>
+                <label for="eleminationRule2" class="elemination-rule-2-label">Elemination 2</label>
+                <input type="checkbox" name="Elemination Rule 2" id="eleminationRule2" class="elemination-rule">
+            </span>
+            <span>
+                <label for="eleminationRule3" class="elemination-rule-3-label">Elemination 3</label>
+                <input type="checkbox" name="Elemination Rule 3" id="eleminationRule3" class="elemination-rule">
+            </span>
+
+            <h3 class="splice-title">Splice Rules</h3>
+            <span>
+                <label for="spliceRule1">Splice 1</label>
+                <input type="checkbox" name="splice rule 1" class="splice-rule" id="spliceRule1" checked>
+            </span>
+            <span>
+                <label for="spliceRule1">Splice 2</label>
+                <input type="checkbox" name="splice rule 2" class="splice-rule" id="spliceRule2">
+            </span>
+            <button id="newFractal" class="new-fractal">New Fractal</button>
+            <button id="downloadPNG" class="download-PNG"><a id="downloadLink" href="#" download="My Fractal">Download PNG</a></button>
+        </section>
+    </main>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

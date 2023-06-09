@@ -1,0 +1,358 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root{
+    --primary-color: #080d18;
+    --secondary-color: #0e172b;
+    --secondary-color-2: #14213d;
+    --secondary-color-3: #2c3750;
+    --secondary-gradient: linear-gradient(90deg, var(--secondary-color), var(--secondary-color-2), var(--secondary-color-3), var(--secondary-color-2), var(--secondary-color));
+    --light-color:#e5e5e5;
+}
+
+body, html{
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+#canvas{
+    background-color: white;
+    flex-grow: 1;
+}
+
+main{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+/*Fractal Tab*/
+.fractal-tabs{
+    bottom: 0px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+    color: var(--light-color);
+    overflow-x: hidden;
+    transition: top 250ms;
+}
+
+.fractal-tab{
+    position: relative;
+    background-color: var(--secondary-color);
+    display: flex;
+    padding-bottom: 10px;
+    padding-inline: 10px;
+    gap: 10px;
+    align-items: flex-end;
+    border-bottom: 5px solid var(--secondary-color-2);
+}
+
+.fractal-profile{
+    display: flex;
+    flex-direction: column;
+}
+
+.fractal-mini-image{
+    background-color: white;
+    flex-grow: 1;
+}
+
+.fractals-tab-container{
+    position: relative;
+    background-color: red;
+    width: 100%;
+}
+
+.fractal-properties{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.fractal-properties > div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+}
+
+.fractal-properties > div > input{
+    height: 20px;
+    background-color: var(--secondary-color-3);
+    outline: none;
+    border-radius: 10px;
+    border: var(--primary-color) 2px solid;
+    box-shadow: var(--secondary-color-2) 0 0 10px 2px;
+    color: var(--light-color);
+    transition: all 250ms;
+}
+
+.fractal-properties > div > input:focus{
+    box-shadow: var(--primary-color) 0 0 10px 2px;
+}
+
+.fractals-top{
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10px;
+}
+
+.fractal-arrow{
+    width: 25px;
+    height: 25px;
+    color: var(--light-color);
+    transition: transform 500ms;
+}
+
+/* Left content */
+.left{
+    display: flex;
+    flex-direction: column;
+    padding-inline: 10px;
+    min-width: 250px;
+    color: var(--light-color);
+    background-color: var(--primary-color);
+}
+
+.left-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.left-content > h3 {
+    position: relative;
+}
+
+/*
+.left-content > h3::before{
+    --side-margin: -2px;
+    content: "";
+    position: absolute;
+    width: calc(100% + var(--side-margin) * -2);
+    height: 3px;
+    left: var(--side-margin);
+    bottom: 0;
+    background-image: var(--secondary-gradient);
+}
+*/
+.fractal-title-container{
+    text-align: center;
+    background-color: var(--primary-color);
+    position: relative;
+    z-index: 2;
+}
+
+.fractal-title-container::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-image: var(--secondary-gradient);
+}
+
+.fractal-title-container::before{
+    --width: 7px;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% + var(--width));
+    height: calc(5px + var(--width));
+    margin: calc(var(--width) / 2 * -1);
+    background-image: var(--secondary-gradient);
+    filter: blur(4px);
+}
+
+.left-content input, .left-content select{
+    position: relative;
+    top: -15px;
+    width: 80%;
+    background-color: var(--secondary-color-2);
+    border: none;
+    outline: none;
+    height: 20px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px 3px #0a111f;
+    color: var(--light-color);
+    transition: all 250ms;
+}
+
+.left-content > input:not(.complexity-input):focus, .left-content > select:focus{
+    transform: scale(1.05);
+    box-shadow: inset 0 0 10px 4px #0a111f;
+    filter: brightness(1.30);
+}
+
+input[type="range"]{
+    -webkit-appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 80%;
+}
+
+/***** Chrome, Safari, Opera, and Edge Chromium *****/
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: var(--secondary-color-2);
+    box-shadow: inset 0 0 10px 3px #0a111f;
+    height: 20px;
+    border-radius: 20px;
+
+}
+
+  /******** Firefox ********/
+input[type="range"]::-moz-range-track {
+  background-color: var(--secondary-color-2);
+  box-shadow: inset 0 0 10px 3px #0a111f;
+  height: 20px;
+  border-radius: 20px;
+}
+
+/***** Chrome, Safari, Opera, and Edge Chromium *****/
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -1.5px; /* Centers thumb on the track */
+    background-color: var(--secondary-color-3);
+    box-shadow: inset 0 0 5px 1px #0a111f;
+    height: 1.5rem;
+    width: 1.5rem;    
+    border-radius: 50%;
+ }
+
+.generate-fractal{
+    font-size: 2rem;
+    margin-bottom: 15px;
+    background-color: var(--secondary-color);
+    filter: brightness(1);
+    color: var(--light-color);
+    box-sizing: border-box;
+    border-radius: 5px;
+    transition: all 250ms;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    padding-inline: 30px;
+}
+
+.generate-fractal:hover{
+    color: var(--light-color);
+    box-shadow: 0 0 10px 3px black;
+    transform: scale(1.1);
+    filter: brightness(1.4);
+
+}
+
+/* middle content */
+.middle{
+    position: relative;
+    background-color: purple;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fractal-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* right content */
+.right{
+    background-color: var(--primary-color);
+    color: var(--light-color) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-inline: 10px;
+    padding-bottom: 20px;
+}
+#gradientColor1Input, #gradientColor2Input{
+    color: var(--light-color);
+}
+.right > input, .background-color-input{
+    box-shadow: inset 0 0 10px 3px #0a111f;   
+    transition: all 250ms;
+    background-color: var(--secondary-color-2);
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    height: 20px;
+}
+
+.right > input:focus{
+    transform: scale(1.05);
+    box-shadow: inset 0 0 10px 4px #0a111f;
+    filter: brightness(1.30);
+}
+
+.gradient-canvas{
+    background-color: white ;
+    height: 100px;
+    width: 200px;
+}
+
+.right > div{
+    position: relative;
+    top: -25px;
+}
+
+.right > h3{
+    text-align: center;
+}
+
+.right > button > a{
+    color: white;
+    text-decoration: none;
+}
+
+.right > button{
+    height: 35px;
+    color: var(--light-color);
+    background-color: var(--secondary-color);
+    border: none;
+    cursor: pointer;
+    transition: all 250ms;
+}
+
+.right > a{
+    height : 35px;
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.right > button:hover{
+    font-size: 1.2rem;
+    filter: brightness(1.3);
+}
+
+.right > span{
+    position: relative;
+    text-align: center;
+    top: -25px;
+}
+
+.background-color-input{
+    width: 96%;
+    color: var(--light-color);
+}

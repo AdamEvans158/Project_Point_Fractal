@@ -8,7 +8,7 @@ export default function applyGradient(canvas, ctx, color1, color2){
     let gradiant = ctx.createLinearGradient(gradiantControlPoint1.x, gradiantControlPoint1.y, gradiantControlPoint2.x, gradiantControlPoint2.x, gradiantControlPoint2.y);
 
     gradiant.addColorStop(0, color1);
-    gradiant.addColorStop(0.5, color2);
+    gradiant.addColorStop(0.55, color2);
     gradiant.addColorStop(1, color2);
 
     ctx.fillStyle = gradiant;

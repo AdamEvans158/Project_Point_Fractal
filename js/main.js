@@ -18,12 +18,12 @@ const newFractal = document.getElementById("newFractal");
 newFractal.addEventListener("click", () => {
     const fractal = new Fractal(getProperties(), canvas, ctx);
     fractals.push(fractal);
-    makeTab(fractal, canvas, fractals);
+    makeTab(fractal, canvas, fractals, "down");
 })
 
 // Toggle fractal tabs when the arrow is clicked
 const tabsArrow = document.getElementById("fractalArrow");
-let arrowDirection = "down";
+let arrowDirection = "up";
 tabsArrow.addEventListener("click", () => {
     const tabs = Array(...document.getElementsByClassName("fractal-tab")); // Array of all fractal tabs
     if(arrowDirection === "down"){

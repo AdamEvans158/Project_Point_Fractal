@@ -3,7 +3,7 @@ import { redrawAllFractals } from "./Fractal.js";
 const fractalTabs = document.getElementById('fractalTabs');
 let index = 0;
 
-export default function makeTab(fractal, canvas, fractals){
+export default function makeTab(fractal, canvas, fractals, arrowDirection){
     index++;
 
     const fractalTab = document.createElement('div');
@@ -84,6 +84,7 @@ export default function makeTab(fractal, canvas, fractals){
     fractalTab.appendChild(fractalProfile);
     fractalTab.appendChild(fractalPropertiesContainer);
 
+    if(arrowDirection === "down") {fractalTab.style.display = "none";}
     fractalTabs.appendChild(fractalTab);
 
     fractal.name = "Fractal_" + index;

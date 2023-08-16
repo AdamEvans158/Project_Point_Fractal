@@ -35,8 +35,7 @@ export default class Fractal{
         ctx.translate(this.x, this.y)
         ctx.rotate(this.rotation * Math.PI / 180);
         ctx.drawImage(this.fractalImage, 0, 0, this.fractalImage.naturalWidth * (this.scale/250), this.fractalImage.naturalHeight * (this.scale/250));
-``
-ctx.restore();
+        ctx.restore();
     }
 }
 
